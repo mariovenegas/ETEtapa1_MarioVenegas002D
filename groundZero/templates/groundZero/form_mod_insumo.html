@@ -28,6 +28,22 @@
 
         <div class="container">
             <h2>Ground Zero</h2>
+            <div>Modificar Insumo</div>
+            <div class="row">
+                <form method="post" action="" id="formulario">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      {{ form.as_table}}
+                    </div>
+      
+                    <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
+                    <input type="reset" class="btn bnt-primary" id="limpiar" value="Limpiar">
+                    <div id="error" class="alert alert-danger" role="alert"></div>
+                  </form>
+                  <div class="alert alert-success" role="alert">
+                    {{mensaje}}
+                  </div>                  
+            </div>
 
             <footer class="footer">
               Mario Venegas, @Copyrigth Derechos reservados

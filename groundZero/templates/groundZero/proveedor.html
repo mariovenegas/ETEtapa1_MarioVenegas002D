@@ -28,6 +28,33 @@
 
         <div class="container">
             <h2>Ground Zero</h2>
+            <div>Listado de Proveedores</div>
+            <div class="row">
+              <table class="table">
+                <thead>
+                <tr><th>Id</th><th>Nombre</th><th>Telefono</th><th>Direccion</th><th>email</th><th>Pais</th><th>Moneda</th><th>Accion</th></tr>
+                </thead>
+                <tbody>
+                {% for proveedor in proveedores%}
+                <tr>
+                  <td>{{proveedor.numeroIdentificacion}}</td>
+                  <td>{{proveedor.nombre}}</td>
+                  <td>{{proveedor.telefono}}</td>
+                  <td>{{proveedor.direccion}}</td>
+                  <td>{{proveedor.email}}</td>
+                  <td>{{proveedor.pais}}</td>
+                  <td>{{proveedor.moneda}}</td>
+                  <td>
+                    <a href="{% url 'form_mod_proveedor' proveedor.numeroIdentificacion %}">Modificar</a>
+                    <a href="{% url 'form_del_proveedor' proveedor.numeroIdentificacion %}">Eliminar</a>
+                  </td>
+                </tr>
+                {% endfor%}
+                </tbody>
+              </table>
+              <a href="{% url 'form_proveedor'%}">Crear Proveedor</a>
+
+            </div>
 
             <footer class="footer">
               Mario Venegas, @Copyrigth Derechos reservados

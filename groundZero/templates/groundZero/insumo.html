@@ -28,7 +28,30 @@
 
         <div class="container">
             <h2>Ground Zero</h2>
+            <div>Listado de Insumos</div>
+            <div class="row">
+              <table class="table">
+                <thead>
+                <tr><th>Id</th><th>Nombre</th><th>Descripcion</th><th>Proveedor</th><th>Accion</th></tr>
+                </thead>
+                <tbody>
+                {% for insumo in insumos%}
+                <tr>
+                  <td>{{insumo.idInsumo}}</td>
+                  <td>{{insumo.nombre}}</td>
+                  <td>{{insumo.descripcion}}</td>
+                  <td>{{insumo.proveedor}}</td>
+                  <td>
+                    <a href="{% url 'form_mod_insumo' insumo.idInsumo %}">Modificar</a>
+                    <a href="{% url 'form_del_insumo' insumo.idInsumo %}">Eliminar</a>
+                  </td>
+                </tr>
+                {% endfor%}
+                </tbody>
+              </table>
+              <a href="{% url 'form_insumo'%}">Crear Insumo</a>
 
+            </div>
             <footer class="footer">
               Mario Venegas, @Copyrigth Derechos reservados
             </footer>

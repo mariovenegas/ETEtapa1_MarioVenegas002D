@@ -4,7 +4,7 @@
     <head>
         <link rel="stylesheet" href="{% static 'groundZero/css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'groundZero/css/font-awesome.css' %}">
-        <link rel="stylesheet" href="{% static 'groundZero/css/groundZero.css' %}">
+        <link rel="stylesheet" href="{% static 'groundZero/css/quat.css' %}">
         <script src="{% static 'groundZero/js/jquery.min.js' %}"></script>
         <script src="{% static 'groundZero/js/bootstrap.min.js' %}"></script>
         <script src="{% static 'groundZero/js/jquery.validate.js' %}"></script>
@@ -28,6 +28,22 @@
 
         <div class="container">
             <h2>Ground Zero</h2>
+            <div>Nuevo Insumo</div>
+            <div class="row">
+                <form method="post" action="" id="formulario">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      {{ form.as_table}}
+                    </div>
+      
+                    <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                    <input type="reset" class="btn bnt-primary" id="limpiar" value="Limpiar">
+                    <div id="error" class="alert alert-danger" role="alert"></div>
+                  </form>
+                  <div class="alert alert-success" role="alert">
+                    {{mensaje}}
+                  </div>                  
+            </div>
 
             <footer class="footer">
               Mario Venegas, @Copyrigth Derechos reservados
